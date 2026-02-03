@@ -65,7 +65,7 @@ CACHE_FILE = "webpage_cache.json"
 class Config:
     """Configuration class for the application"""
     # Use st.secrets for Cloud deployment compatibility, fallback to os.environ
-    GROQ_API_KEY: str = os.environ.get("GROQ_API_KEY", "")
+    GROQ_API_KEY: str = os.environ.get("GROQ_API_KEY", st.secrets.get("GROQ_API_KEY", ""))
     EMBEDDING_MODEL: str = "sentence-transformers/all-MiniLM-L6-v2"
     GROQ_MODEL: str = "llama-3.1-8b-instant"
     CHUNK_SIZE: int = 1000
